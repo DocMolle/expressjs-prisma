@@ -18,25 +18,27 @@ model Todo {
 }
 
 model Room {
-  id        ID!    @id
-  roomNumber String!
-  capacity   Int!
-  amenities  String!
+  id        Int    @id @default(autoincrement())
+  roomNumber String
+  capacity   Int
+  amenities  String
+  bookings    Booking[]
 }
 
 model Booking {
-  id         ID!    @id
-  room       Room!   @relation(fields: [roomId], references: [id])
-  roomId     ID!
-  startDate  String!
-  endDate    String!
-  customer   Customer! @relation(fields: [customerId], references: [id])
-  customerId ID!
+  id         String    @id
+  room       Room      @relation(fields: [roomId], references: [id])
+  roomId     Int
+  startDate  String
+  endDate    String
+  customer   Customer @relation(fields: [customerId], references: [id])
+  customerId String
 }
 
 model Customer {
-  id           ID!    @id
-  name         String!
-  email        String!
-  phoneNumber  String!
+  id           String    @id
+  name         String
+  email        String
+  phoneNumber  String
+  bookings    Booking[]
 }
