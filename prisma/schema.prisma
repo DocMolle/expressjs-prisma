@@ -17,26 +17,26 @@ model Todo {
   completed Boolean
 }
 
-type Room {
-  id: ID! @id
-  roomNumber: String!
-  capacity: Int!
-  amenities: String!
+model Room {
+  id        ID!    @id
+  roomNumber String!
+  capacity   Int!
+  amenities  String!
 }
 
-type Booking {
-  id: ID! @id
-  room: Room! @relation(fields: [roomId], references: [id])
-  roomId: ID!
-  startDate: String!
-  endDate: String!
-  customer: Customer! @relation(fields: [customerId], references: [id])
-  customerId: ID!
+model Booking {
+  id         ID!    @id
+  room       Room!   @relation(fields: [roomId], references: [id])
+  roomId     ID!
+  startDate  String!
+  endDate    String!
+  customer   Customer! @relation(fields: [customerId], references: [id])
+  customerId ID!
 }
 
-type Customer {
-  id: ID! @id
-  name: String!
-  email: String!
-  phoneNumber: String!
+model Customer {
+  id           ID!    @id
+  name         String!
+  email        String!
+  phoneNumber  String!
 }
