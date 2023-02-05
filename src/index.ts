@@ -23,7 +23,7 @@ app.post("/todos", async (req, res) => {
     data: {
       completed: false,
       createdAt: new Date(),
-      text: req.body.text ?? "Empty todo",
+      text: req.body.text ?? "Empty todo1",
     },
   });
 
